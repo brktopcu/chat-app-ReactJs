@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.loginForm {
+  margin-top: 20% !important;
+}
+
+.chatRoom {
+  margin-top: 5% !important;
+}
+
+.messagesSegment {
+  overflow: auto !important;
+  max-height: 500px !important;
+}
