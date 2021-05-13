@@ -54,7 +54,7 @@ export class ChatRoom extends Component {
         onMessage={(msg) => {
           console.log(msg);
           this.setState({
-            privateMessages: [...this.state.privateMessages, msg],
+            allMessages: [...this.state.allMessages, msg],
           });
         }}
         ref={(client) => {
