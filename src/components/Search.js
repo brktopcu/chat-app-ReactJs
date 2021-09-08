@@ -14,7 +14,7 @@ export class Search extends Component {
     componentDidMount() {
         axios
             .get(
-                "http://localhost:8080/privateMessages/" +
+                "http://localhost:8080/userMessages/" +
                 this.props.match.params.username
             )
             .then((response) => this.setState({ allMessages: response.data }))
