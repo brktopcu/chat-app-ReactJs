@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import SockJsClient from "react-stomp";
-import { Button, Form, Grid, Header, Segment } from "semantic-ui-react";
+import {Button, Form, Grid, Header, Segment} from "semantic-ui-react";
 import Messages from "./Messages";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import axios from "axios";
 import PrivateMessage from "./PrivateMessage";
 
@@ -46,10 +46,10 @@ export class ChatRoom extends Component {
         url="http://localhost:8080/websocket-chat/"
         topics={["/topic/" + this.props.userDetails.user.chatRoom]}
         onConnect={() => {
-          console.log("Odaya bağlandı");
+          console.log("Connected to room");
         }}
         onDisconnect={() => {
-          console.log("Oda bağlantısı kesildi");
+          console.log("Disconnected from room");
         }}
         onMessage={(msg) => {
           console.log(msg);
@@ -72,13 +72,13 @@ export class ChatRoom extends Component {
           <Grid.Row>
             <Grid.Column width={2}>
               <Button primary onClick={() => this.props.history.push("/")}>
-                Geri Dön
+                Back
               </Button>
               <Header>{this.props.userDetails.user.name}</Header>
             </Grid.Column>
             <Grid.Column width={7}>
               <Header>
-                Chat Odası - {this.props.userDetails.user.chatRoom}
+                Chat Room - {this.props.userDetails.user.chatRoom}
               </Header>
               <Segment color="teal" padded="very" className="messagesSegment">
                 <Messages allMessages={this.state.allMessages} />
@@ -98,7 +98,7 @@ export class ChatRoom extends Component {
                 />
                 <Button
                   type="submit"
-                  content="Gönder"
+                  content="Send"
                   labelPosition="left"
                   icon="edit"
                   primary

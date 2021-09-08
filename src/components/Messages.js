@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Comment, Header } from "semantic-ui-react";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {Comment, Header} from "semantic-ui-react";
+import {connect} from "react-redux";
 
 export class Messages extends Component {
   render() {
@@ -8,11 +8,11 @@ export class Messages extends Component {
       <div>
         <Comment.Group>
           <Header as="h3" dividing>
-            Mesajlar
+            Messages
           </Header>
 
           {this.props.allMessages.length === 0 ? (
-            <h5>Henüz bir mesaj yok.</h5>
+            <h5>No message yet.</h5>
           ) : (
             ""
           )}

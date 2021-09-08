@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import SockJsClient from "react-stomp";
-import { connect } from "react-redux";
-import { Item, Modal, Button, Form, Segment, Header } from "semantic-ui-react";
+import {connect} from "react-redux";
+import {Button, Form, Header, Item, Modal, Segment} from "semantic-ui-react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 export class PrivateMessage extends Component {
   state = {
@@ -73,14 +74,14 @@ export class PrivateMessage extends Component {
       <div>
         {this.privateClient()}
         <Segment raised className="privateSegment">
-          <Header>Özel Mesaj Gönder</Header>
+          <Header>Send Private Message</Header>
           <Modal
             open={this.state.modalOpen}
             onClose={() => this.setState({ modalOpen: false })}
             onOpen={() => this.setState({ modalOpen: true })}
             size="tiny"
           >
-            <Modal.Header>Özel Mesajlarım</Modal.Header>
+            <Modal.Header>My Messages</Modal.Header>
             <Modal.Content scrolling>
               <Item.Group divided>
                 {this.state.privateMessages.map((msg) => (
@@ -99,18 +100,18 @@ export class PrivateMessage extends Component {
           <Form>
             <Form.Input
               fluid
-              label="Gönderilecek kişi"
-              placeholder="Göndermek istediğiniz kişinin adını yazın"
+              label="To"
+              placeholder="Enter receiver's username"
               value={this.state.userSent}
               onChange={this.handleUserSent}
             />
             <Form.TextArea
-              placeholder="Göndermek istediğiniz mesajı yazın"
+              placeholder="Enter the message"
               value={this.state.typedMessage}
               onChange={this.handleTypedMessage}
             />
             <Button primary onClick={this.sendMessage}>
-              Gönder
+              Send
             </Button>
           </Form>
         </Segment>
@@ -120,8 +121,25 @@ export class PrivateMessage extends Component {
             floated="left"
             onClick={() => this.setState({ modalOpen: true })}
           >
-            Özel Mesajlarım ({this.state.privateMessages.length})
+            My Private Messages ({this.state.privateMessages.length})
           </Button>
+          <Link to={`/search/${this.props.userDetails.user.name}`}>
+            <Button
+                secondary
+                floated="left"
+            >
+            Search
+          </Button>
+          </Link>
+          <Link to={`/statistics/${this.props.userDetails.user.name}`}>
+            <Button
+                secondary
+                floated="left"
+            >
+            Statistics
+          </Button>
+          </Link>
+
         </span>
       </div>
     );

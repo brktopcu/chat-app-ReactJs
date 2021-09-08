@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { setDataAction } from "../actions";
-import { Button, Form, Grid, Radio, Image, Item } from "semantic-ui-react";
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {setDataAction} from "../actions";
+import {Button, Form, Grid, Image, Item, Radio} from "semantic-ui-react";
 
 export class Login extends Component {
   state = {
@@ -44,20 +44,20 @@ export class Login extends Component {
               <Form className="loginForm">
                 <Form.Input
                   fluid
-                  label="Adınız"
-                  placeholder="Adınızı girin"
+                  label="Name"
+                  placeholder="Enter your name"
                   value={this.state.name}
                   onChange={this.handleName}
                 />
                 <Form.Input
                   fluid
-                  label="Chat Odası"
-                  placeholder="Bağlanmak istediğiniz chat odasını girin"
+                  label="Chat Room"
+                  placeholder="Enter the chat room you want to connect to"
                   value={this.state.chatRoom}
                   onChange={this.handleChatRoom}
                 />
                 <Item.Group divided>
-                  <h5>Avatar seçin</h5>
+                  <h5>Choose Avatar</h5>
                   {this.state.avatarOptions.map((option) => (
                     <Item>
                       <Item.Image size="mini">
@@ -77,7 +77,7 @@ export class Login extends Component {
                   ))}
                 </Item.Group>
                 <Button primary onClick={this.handleConnect}>
-                  Bağlan
+                  Connect
                 </Button>
               </Form>
             </Grid.Column>
